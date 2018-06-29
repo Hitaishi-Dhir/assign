@@ -1,0 +1,8 @@
+import numpy
+
+
+
+
+
+
+print(a)
