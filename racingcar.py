@@ -1,10 +1,8 @@
-# ...................:
+
 import pygame
 import time
 import random
 import sqlite3
-import tkinter
-from tkinter import *
 
 conn = sqlite3.connect('racing.db')
 print("database opened successfully!")
@@ -59,7 +57,7 @@ pygame.display.set_icon(gameicon)
 clock = pygame.time.Clock()
 
 carImg = pygame.image.load('car1.png')
-gameDisplay.blit(carImg, (250, 380))
+#gameDisplay.blit(carImg, (250, 380))
 
 pause = False
 
@@ -266,12 +264,12 @@ def game_loop():
 
     x_change = 0
 
-    thing1_startx = random.randrange(100, 600)
+    thing1_startx = random.randrange(150, 600)
     thing1_starty = -600
     thing1_speed = random.randrange(6, 8)
     thing1_width = 70
     thing1_height = 70
-    thing_startx = random.randrange(100, 600)
+    thing_startx = random.randrange(150, 600)
     thing_starty = -600
     thing_speed = random.randrange(6, 8)
     thing_width = 70
@@ -328,12 +326,12 @@ def game_loop():
         things_dodged(dodged)
         things_dodged(dodged)
 
-        if x > (display_width - 100) - car_width or x < 100:
+        if x > (display_width -100) - car_width or x < 100:
             crash()
 
         if thing1_starty > display_height:
             thing1_starty = 0 - thing1_height
-            thing1_startx = random.randrange(100, 600)
+            thing1_startx = random.randrange(100, 700)
 
             dodged += 1
             thing1_speed += 2
@@ -341,7 +339,7 @@ def game_loop():
 
         if thing_starty > display_height:
             thing_starty = 0 - thing_height
-            thing_startx = random.randrange(100, 600)
+            thing_startx = random.randrange(100, 700)
             dodged += 1
 
             thing_speed += 2
